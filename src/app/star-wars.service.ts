@@ -20,10 +20,10 @@ export class StarWarsService {
 
   fetchCharacters() {
     this.http.get('https://swapi.co/api/people')
-      .map((response : Response) => {
+      .map((response : Response) => { //map from rxJs
         const data = response.json();
         const extractedChars = data.results;
-        const chars = extractedChars.map((char) => {
+        const chars = extractedChars.map((char) => { //map from javascript
           return {name: char.name, side: ''}
         });
 
@@ -33,6 +33,7 @@ export class StarWarsService {
         (data) => {
           console.log(data);
           this.characters = data;
+          this.charactersChanged.next();
         }
     );
   }
