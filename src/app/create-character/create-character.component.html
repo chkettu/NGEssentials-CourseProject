@@ -1,16 +1,16 @@
-<form (ngSubmit)="onSubmit(form)" #form="ngForm">
+<form [formGroup]="createForm" (ngSubmit)="onSubmit(createForm.value)">
   <div class="form-group">
     <label for="name">Character Name</label>
-    <input type="text" id="name" name="name" class="form-control" ngModel required #nameCtrl="ngModel">
-    <span class="help-block" *ngIf="nameCtrl.invalid && nameCtrl.touched">Please enter a name!</span>
+    <input type="text" id="name" class="form-control" required [formControl]="createForm.controls['name']">
+    <span class="help-block" *ngIf="createForm.invalid && createForm.touched">Please enter a name!</span>
   </div>
   <div class="form-group">
     <label for="side">Choose Side</label>
-    <select name="side" id="side" class="form-control" ngModel>
+    <select name="side" id="side" class="form-control" [formControl]="createForm.controls['side']">
       <option *ngFor="let option of availableSides" [value]="option.value">
         {{ option.display }}
       </option>
     </select>
   </div>
-  <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Add Character</button>
+  <button class="btn btn-primary" type="submit" [disabled]="createForm.invalid">Add Character</button>
 </form>

@@ -8,7 +8,7 @@ import { ItemComponent } from './item/item.component';
 import {StarWarsService} from "./star-wars.service";
 import {LogService} from "./log.service";
 import { CreateCharacterComponent } from './create-character/create-character.component';
-import {FormsModule} from "@angular/forms";
+import {FormBuilder, FormControl, FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { HeaderComponent } from './header/header.component';
 import {RouterModule} from "@angular/router";
 import {HttpModule} from "@angular/http";
@@ -34,6 +34,7 @@ const routes= [
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes),
     HttpModule
   ],
