@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import {LogService} from "./log.service";
+import {Subject} from "rxjs/Subject";
+import {Http, Response} from "@angular/http";
+import "rxjs/add/operator/map";
 
 @Injectable()
 export class StarWarsService {
@@ -8,8 +11,32 @@ export class StarWarsService {
     { name: 'Darth Vader', side: '' },
   ];
 
-  constructor(private logService: LogService) { }
+  charactersChanged = new Subject<void>();
+  http: Http;
 
+  constructor(private logService: LogService, http: Http) {
+    this.http = http;
+  }
+
+  fetchCharacters() {
+    this.http.get('https://swapi.co/api/people')
+      .map((response : Response) => { //map from rxJs
+        const data = response.json();
+        const extractedChars = data.results;
+        const chars = extractedChars.map((char) => { //map from javascript
+          return {name: char.name, side: ''}
+        });
+
+        return chars;
+      })
+      .subscribe(
+        (data) => {
+          console.log(data);
+          this.characters = data;
+          this.charactersChanged.next();
+        }
+    );
+  }
 
   getCharacters(chosenList) {
     if (chosenList === 'all') {
@@ -25,6 +52,7 @@ export class StarWarsService {
       return char.name === charInfo.name;
     })
     this.characters[pos].side = charInfo.side;
+    this.charactersChanged.next();
     this.logService.writeLog('Changed side of '+ charInfo.name + ', new side: ' + charInfo.side);
   }
 
