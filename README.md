@@ -1,27 +1,27 @@
-# NGEssentials
+# Notes on Udemy's "Angular 4 Essentials"
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.5.
+## Resources
 
-## Development server
+* [Udemy course](https://www.udemy.com/angular-essentials-angular-2-angular-4-with-typescript/)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Setup
 
-## Code scaffolding
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.5. with the IntelliJ "New project"-assistant.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* Choose `File/New Project/Static Web/Angular CLI` to create project.
+* run `npm install` from the command line.
+* run `npm start` from the command line to start project.
+* Open [link](http://localhost:4200) in your browser.
 
-## Build
+## Notes
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Components and services should be created with the `ng`-command - it adds all configurations needed to the project files with the common Angular-notation.
+* Create components with: `ng c c component --spec false` (`--spec false` creates component without test class)
+* Create services with: `ng c s service --spec false`
 
-## Running unit tests
+Two approaches to create a Form:
+* Building `FormControls` and `FormGroups implicitly using `ngForm` and `ngControl` (as shown in the course).
+* Building forms with `FormBuilder` (helper class to build forms more flexible). Git branch `spike/form-builder`.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
