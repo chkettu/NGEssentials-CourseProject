@@ -26,5 +26,6 @@ Two approaches to create a Form:
 
 Optimizations:
 * Create your own `AppRoutingModule`.
+* Lazy loading of components with Feature-Modules and `loadChildren`-routes.
 
 
