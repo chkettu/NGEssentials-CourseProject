@@ -31,3 +31,5 @@ Optimizations:
 ## Deployment
 
 * run `ng build --prod` (converts all into javascript and minifizes code due to `--prod` - code will be found in `dist`-folder)
+* change base-href for webserver: run `ng build --prod --base-href /my-cool-app/`
+* copy files of `dist`-folder onto webserver
