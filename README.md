@@ -16,12 +16,20 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Notes
 
 Components and services should be created with the `ng`-command - it adds all configurations needed to the project files with the common Angular-notation.
-* Create components with: `ng c c component --spec false` (`--spec false` creates component without test class)
-* Create services with: `ng c s service --spec false`
+* Create components with: `ng g c component --spec false` (`--spec false` creates component without test class)
+* Create services with: `ng g s service --spec false`
+* Create modules with: `ng g m module`
 
 Two approaches to create a Form:
 * Building `FormControls` and `FormGroups implicitly using `ngForm` and `ngControl` (as shown in the course).
 * Building forms with `FormBuilder` (helper class to build forms more flexible). Git branch `spike/form-builder`.
 
+Optimizations:
+* Create your own `AppRoutingModule`.
+* Lazy loading of components with Feature-Modules and `loadChildren`-routes.
 
+## Deployment
 
+* run `ng build --prod` (converts all into javascript and minifizes code due to `--prod` - code will be found in `dist`-folder)
+* change base-href for webserver: run `ng build --prod --base-href /my-cool-app/`
+* copy files of `dist`-folder onto webserver
