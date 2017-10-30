@@ -28,4 +28,6 @@ Optimizations:
 * Create your own `AppRoutingModule`.
 * Lazy loading of components with Feature-Modules and `loadChildren`-routes.
 
+## Deployment
 
+* run `ng build --prod` (converts all into javascript and minifizes code due to `--prod` - code will be found in `dist`-folder)
